@@ -45,5 +45,8 @@ public class GUIImagemController {
 		}
 		return mv;
 	}
-
+	@GetMapping("/consulta")
+	public ModelAndView exibirFormularioConsulta() {
+		return new ModelAndView("consultarProduto");
+	}
 }
