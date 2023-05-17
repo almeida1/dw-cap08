@@ -18,5 +18,5 @@ public interface MantemCliente {
 
 	Optional<Cliente> atualiza(Long id, Cliente cliente);
 
-	Endereco obtemEndereco(String cep);
+	Optional<Endereco> obtemEndereco(String cep);
 }

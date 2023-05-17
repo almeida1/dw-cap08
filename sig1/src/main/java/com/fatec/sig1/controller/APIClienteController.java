@@ -49,7 +49,7 @@ public class APIClienteController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
-		Optional<Endereco> endereco = Optional.ofNullable(mantemCliente.obtemEndereco(clienteDTO.getCep()));
+		Optional<Endereco> endereco = mantemCliente.obtemEndereco(clienteDTO.getCep());
 		logger.info(">>>>>> apicontroller obtem endereco => " + clienteDTO.getCep());
 		if (endereco.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CEP invalido");
@@ -89,7 +89,7 @@ public class APIClienteController {
 		if (c.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado.");
 		}
-		Optional<Endereco> e = Optional.ofNullable(mantemCliente.obtemEndereco(clienteDTO.getCep()));
+		Optional<Endereco> e = mantemCliente.obtemEndereco(clienteDTO.getCep());
 		if (e.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CEP não localizado.");
 		}
