@@ -4,8 +4,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.br.CPF;
 
+import jakarta.persistence.Column;
+
 public class ClienteDTO {
-	@NotBlank(message = "Nome é requerido")
+	@Column(nullable = false)
 	private String nome;
 	@Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])[\\/-](0?[1-9]|1[012])[\\/-]\\d{4}$", message = "A data de nascimentodeve estar no formato dd/MM/YYYY")
 	private String dataNascimento;

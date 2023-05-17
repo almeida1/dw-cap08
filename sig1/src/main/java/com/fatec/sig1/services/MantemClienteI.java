@@ -54,6 +54,9 @@ public class MantemClienteI implements MantemCliente {
 	@Override
 	public Optional<Cliente> save(Cliente cliente) {
 		logger.info(">>>>>> servico save chamado ");
+		if (cliente.getNome().equals(""))
+			return Optional.empty();
+			
 		cliente.setDataCadastro(new DateTime());
 		Optional<Endereco> endereco = obtemEndereco(cliente.getCep());
 		if(endereco.isPresent())
